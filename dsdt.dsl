@@ -13533,15 +13533,19 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "CBX3   ", 0x01072009)
 
         Method (LSTA, 1, Serialized)
         {
+            Store("BEN LSTA", Debug)
+            Store(OSYS, Debug)
+            Store(Arg0, Debug)
+
             If (((Arg0 == Zero) || (Arg0 == 0x03)))
             {
                 Return (Zero)
             }
 
-            If ((OSYS < 0x07DC))
-            {
-                Return (Zero)
-            }
+            //If ((OSYS < 0x07DC))
+            //{
+            //    Return (Zero)
+            //}
 
             Return (0x0F)
         }
@@ -13736,6 +13740,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "CBX3   ", 0x01072009)
 
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
+                Store("BEN LSTA SMD0 != 0x02", Debug)
                 Return (LSTA (SMD0))
             }
         }
@@ -13748,11 +13753,13 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "CBX3   ", 0x01072009)
             Name (_ADR, 0x00150000)  // _ADR: Address
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
+                Store("BEN LSTA SMD0 == 0x02", Debug)
                 If (PCIC (Arg0))
                 {
                     Return (PCID (Arg0, Arg1, Arg2, Arg3))
                 }
 
+                Store("BEN LSTA SMD0 == 0x02, uh oh", Debug)
                 Return (Zero)
             }
         }
@@ -13797,6 +13804,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "CBX3   ", 0x01072009)
 
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
+                Store("BEN LSTA SMD1 != 0x02", Debug)
                 Return (LSTA (SMD1))
             }
         }
@@ -13809,10 +13817,12 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "CBX3   ", 0x01072009)
             Name (_ADR, 0x00150001)  // _ADR: Address
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
+                Store("BEN LSTA SMD1 == 0x02", Debug)
                 If (PCIC (Arg0))
                 {
                     Return (PCID (Arg0, Arg1, Arg2, Arg3))
                 }
+                Store("BEN LSTA SMD1 == 0x02, uh oh", Debug)
 
                 Return (Zero)
             }
