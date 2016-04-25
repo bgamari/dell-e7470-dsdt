@@ -12834,11 +12834,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "CBX3   ", 0x01072009)
 
                 If (CondRefOf (\_SB.PCI0.SAT0.SDSM))
                 {
-                    Return (SDSM) /* External reference */
-                    Arg0
-                    Arg1
-                    Arg2
-                    Arg3
+                    Return (SDSM( Arg0, Arg1, Arg2, Arg2)) /* External reference */
                 }
 
                 Return (Zero)
@@ -16240,8 +16236,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "CBX3   ", 0x01072009)
     {
         If (CondRefOf (MDBG))
         {
-            Return (MDBG) /* External reference */
-            Arg0
+            Return (MDBG(Arg0)) /* External reference */
         }
 
         Return (Zero)
