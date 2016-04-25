@@ -16874,6 +16874,8 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "CBX3   ", 0x01072009)
                     OSYS = 0x07DF
                 }
             }
+            Store("BEN hello world!", Debug)
+            Store(OSYS, Debug)
 
             If (CondRefOf (\_PR.DTSE))
             {
