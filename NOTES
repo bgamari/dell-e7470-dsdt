@@ -1,0 +1,12 @@
+INT3442: https://chromium.googlesource.com/chromiumos/third_party/coreboot/+/chromeos-2013.04/src/soc/intel/skylake/acpi/serialio.asl
+https://www.coreboot.org/pipermail/coreboot-gerrit/2015-September/030553.html
+http://ubuntu.5.x6.nabble.com/Vivid-PULL-backport-of-skylake-i2c-driver-td5110704.html
+
+
+
+HPO: ???
+HID == Hardware ID
+GEXP == GPIO Expander?
+GADR(pin, reg) == address of gpio register 
+GGRP == get GPIO pin group?
+GNMB == get GPIO pin number?
